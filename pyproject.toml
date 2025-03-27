@@ -1,0 +1,26 @@
+[project]
+name = "easy-booking-bot"
+version = "0.1.0"
+description = "Telegram-бот для записи на мероприятия"
+authors = [
+    {name = "artkzmin",email = "artkzmin@gmail.com"}
+]
+readme = "README.md"
+requires-python = "3.11.9"
+dependencies = [
+    "aiogram (>=3.19.0,<4.0.0)",
+    "pydantic-settings (>=2.8.1,<3.0.0)",
+    "sqlalchemy (>=2.0.40,<3.0.0)",
+    "asyncpg (>=0.30.0,<0.31.0)",
+    "pytest (>=8.3.5,<9.0.0)",
+    "pytest-asyncio (>=0.26.0,<0.27.0)",
+    "alembic (>=1.15.1,<2.0.0)",
+    "ruff (>=0.11.2,<0.12.0)",
+    "black (>=25.1.0,<26.0.0)"
+]
+
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
