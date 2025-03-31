@@ -2,7 +2,7 @@ FROM python:3.11.9
 
 WORKDIR /app
 
-COPY poe
+COPY pyproject.toml pyproject.toml
 
 RUN make install
 
