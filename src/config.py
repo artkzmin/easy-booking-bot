@@ -1,5 +1,5 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 from typing import Literal
 
 
@@ -17,6 +17,18 @@ class DBSettings(BaseModel):
         return f"{dbms}+{engine}://{self.user}:{self.password}@{self.host}:{self.port}/{self.name}"
 
 
+class OrganizationSettings(BaseModel):
+    id: int
+    name: str
+
+
+class SMTPSettings(BaseModel):
+    host: str
+    port: int
+    email: EmailStr
+    password: str
+
+
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_file=".env",
@@ -26,6 +38,8 @@ class Settings(BaseSettings):
     )
     mode: Literal["TEST", "LOCAL", "DEV", "PROD"]
     db: DBSettings
+    organization: OrganizationSettings
+    smtp: SMTPSettings
 
 
 settings = Settings()
